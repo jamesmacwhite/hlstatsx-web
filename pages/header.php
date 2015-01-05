@@ -234,34 +234,6 @@ For support and installation notes visit http://www.hlxcommunity.com
 ?>			</li>
 		</ul>
 
-<?php 
-		if ($g_options['display_style_selector'] == 1) {
-?>
-		<div class="fNormal" style="float:right;"> 
-			<form name="style_selection" id="style_selection" action="" method="post"> Style: 
-				<select name="stylesheet" onchange="document.style_selection.submit()"> 
-				<?php 
-					$d = dir('styles'); 
-					while (false !== ($e = $d->read())) { 
-						if (is_file("styles/$e") && ($e != '.') && ($e != '..') && $e != $g_options['style']) { 
-							$ename = ucwords(strtolower(str_replace(array('_','.css'), array(' ',''), $e))); 
-							$styles[$e] = $ename; 
-						} 
-					}
-					$d->close(); 
-					asort($styles); 
-					$styles = array_merge(array($g_options['style'] => 'Default'),$styles);
-					foreach ($styles as $e => $ename) { 
-						$sel = ''; 
-						if ($e == $selectedStyle) $sel = ' selected="selected"'; 
-						echo "\t\t\t\t<option value=\"$e\"$sel>$ename</option>\n"; 
-					} ?> 
-				</select> 
-			</form> 
-		</div> 
-<?php
-		}
-?>
 	</div>
 	<div class="location_under" style="clear:both;width:100%;"></div>
 </div>

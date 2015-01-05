@@ -231,7 +231,6 @@ RewriteRule sig-(.*)-(.*).png$ sig.php?player_id=$1&background=$2 [L]</textarea>
 	$optiongroups[30]->options[] = new Option('graphtxt_load', 'Server Load graph: text color# (RRGGBB)', 'text');
 	$optiongroups[30]->options[] = new Option('graphbg_trend', 'Player Trend graph: background color hex# (RRGGBB)', 'text');
 	$optiongroups[30]->options[] = new Option('graphtxt_trend', 'Player Trend graph: text color hex# (RRGGBB)', 'text');
-	$optiongroups[30]->options[] = new Option('display_style_selector', 'Display Style Selector?<br />Allow end users to change the style they are using.', 'select');
 	$optiongroups[30]->options[] = new Option('display_gamelist', 'Enable Gamelist icons<br />Enables or Disables the game icons near the top-right of all pages.', 'select');
 
 	
