@@ -366,7 +366,7 @@ class TSStatus
 
 		
 			if ($this->showNicknameBox) $out .= $this->renderNickNameBox();
-			$out .= '<div class="tsstatusServerName"><a href="ts3server://'. $this->_host .'?port='.$this->_serverDatas["virtualserver_port"].'&nickname=WebGuest"><img src="' . $this->imagePath . '16x16_server_green.png" />' . $this->_serverDatas["virtualserver_name"] . "</a></div>\n";
+			$out .= '<div class="tsstatusServerName"><a href="ts3server://'. $this->_host .'?port='.$this->_serverDatas["virtualserver_port"].'&amp;nickname=WebGuest"><img src="' . $this->imagePath . '16x16_server_green.png" />' . $this->_serverDatas["virtualserver_name"] . "</a></div>\n";
 			if(count($this->_channelDatas) > 0) $out .= $this->renderChannels(0);
 			$out .= "</div>\n";
 		}
