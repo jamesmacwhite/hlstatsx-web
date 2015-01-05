@@ -102,7 +102,7 @@ class TSStatus
 			if(!$isTs3) throw new Exception("Not a Teamspeak 3 server/bad query port");
 
 			$response = "";  
-			$response .= $this->sendCommand("use sid=" . $this->_sid);
+			$response .= $this->sendCommand("use port=" . $this->_sid);
 			$this->sendCommand("clientupdate client_nickname=HLSTATSX:CE-TS3-Viewer");
 			$response .= $this->sendCommand("serverinfo");
 			$response .= $this->sendCommand("channellist -topic -flags -voice -limits");
