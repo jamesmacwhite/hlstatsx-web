@@ -7,9 +7,9 @@ It is a directly clone of the web folder from the original source code of HLstat
 
 ## Changes/Additions
 
-** All template pages using the HTML5 Doctype
-** SourceBans Redux theme
-** Mobile optimisation
+* All template pages using the HTML5 Doctype
+* SourceBans Redux theme
+* Mobile optimisation
 
 ## Installing
 
