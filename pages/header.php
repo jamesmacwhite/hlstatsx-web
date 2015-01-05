@@ -51,7 +51,7 @@ For support and installation notes visit http://www.hlxcommunity.com
   
 	// visit counter
 	if ($_COOKIE['ELstatsNEO_Visit'] == 0) {
-		// kein cookie gefunden, also visitcounter erhöhen und cookie setzen
+		// kein cookie gefunden, also visitcounter erhï¿½hen und cookie setzen
 		$db->query("UPDATE hlstats_Options SET value=value+1 WHERE keyname='counter_visits';");
 		@setcookie('ELstatsNEO_Visit', '1', time() + ($g_options['counter_visit_timeout'] * 60), '/');   
 	}
@@ -98,14 +98,13 @@ For support and installation notes visit http://www.hlxcommunity.com
 	}
 	
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=8" />
-	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 	<link rel="stylesheet" type="text/css" href="hlstats.css" />
 	<link rel="stylesheet" type="text/css" href="styles/<?php echo $selectedStyle; ?>" />
 	<link rel="stylesheet" type="text/css" href="css/SqueezeBox.css" />
