@@ -1,0 +1,58 @@
+.tsstatus{
+	width: 350px;
+	overflow: hidden;
+	position: relative;
+}
+.tsstatus, .tsstatus *{
+	font-family: Verdana;
+	font-size: 10px;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	white-space:nowrap;
+}
+.tsstatuserror{
+	font-family: Verdana;
+	font-size: 10px;
+	color: red;
+}
+.tsstatus .tsstatusNickname{
+	border-bottom: 1px solid #aaa;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
+}
+.tsstatus .tsstatusServerName{
+	
+}
+.tsstatus input{
+	width: 135px;
+	height: 18px;
+}
+.tsstatus .tsstatusItem{
+	margin-left: 18px;
+	clear: both;
+}
+.tsstatus .tsstatusLabell{
+	float: left;
+}
+.tsstatus .tsstatusLabelr{
+	float: right;
+}
+.tsstatus .tsstatusFlags{
+	position: absolute;
+	right: 0;
+	clear: right;
+}
+.tsstatus a{
+	text-decoration: none;
+	color: #333;
+}
+.tsstatus a:hover{
+	color: #AEAEAE;
+	text-decoration:none;
+
+}
+.tsstatus img{
+	margin-right: 2px;
+	border: 0;
+}

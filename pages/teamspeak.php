@@ -3,8 +3,9 @@
 		array('Teamspeak viewer'),
 		array('Teamspeak viewer' => '')
 	);
-  include (PAGE_PATH.'/voicecomm_serverlist.php');
-  include (PAGE_PATH.'/teamspeak_query.php');
+  include_once (PAGE_PATH.'/voicecomm_serverlist.php');
+  include_once (PAGE_PATH.'/teamspeak_query.php');
+  include_once (PAGE_PATH.'/teamspeak3_query.php');
 
   $tsId = valid_request($_GET['tsId'],1);
 
@@ -27,7 +28,7 @@ function show($tpl, $array)
 
   if(function_exists(fopen))
   {
-    $db->query("SELECT addr, queryPort, UDPPort FROM hlstats_Servers_VoiceComm WHERE serverId=$tsId");
+    $db->query("SELECT addr, queryPort, UDPPort, serverType FROM hlstats_Servers_VoiceComm WHERE serverId=$tsId");
     $s = $db->fetch_array();
 
     $uip 	= $s['addr'];
@@ -218,9 +219,9 @@ function show($tpl, $array)
 	    $type	= 0;
     }
 
-    if($type==0)     $info = defaultInfo($uip,$tPort,$port);
-    elseif($type==1) $info = channelInfo($uip,$tPort,$port,$cID);
-
+    
+    if ( $s['serverType'] == "0" )
+    {
     $outp_str = show("teamspeak", array("name" => $name,
                                            "os" => $os,
                                            "uptime" => time_convert($uptime),
@@ -243,7 +244,45 @@ function show($tpl, $array)
                                            "idletime" => "Idle time",
                                            "channelstats" => $channelstats,
                                            "userstats" => $userstats));
-					   
+		}
+    elseif( $s['serverType'] == "2" )
+    { 
+      $tsstatus = new TSStatus($uip, $tPort, $port);
+			$tsstatus->imagePath = IMAGE_PATH."/teamspeak3/";
+			$tsstatus->showNicknameBox = false;
+			$tsstatus->decodeUTF8 = false;
+			$tsstatus->timeout = 2;
+       function ts3_get_data($was,$data)
+       {
+       global $tsstatus;
+       $data = $tsstatus->serverdata();
+       return $data[$was];
+       } 
+			 $channels = '<link rel="stylesheet" type="text/css" href="'.IMAGE_PATH.'/teamspeak3/ts3.css" />'.$tsstatus->render();
+       $outp_str = show("teamspeak3", array("name" => ts3_get_data('virtualserver_name'),
+                                           "os" => ts3_get_data('virtualserver_platform'),
+                                           "uptime" => time_convert(ts3_get_data('virtualserver_uptime')),
+                                           "user" => ts3_get_data('virtualserver_clientsonline'),
+                                           "t_name" => "Server name",
+                                           "t_os" => "Operating system",
+                                           "uchannels" => $channels,
+                                           "info" => $tsstatus->info($uip),
+                                           "t_uptime" => "Uptime",
+                                           "t_channels" => "Channels",
+                                           "t_user" => "Users",
+                                           "head" => "Teamspeak Overview",
+                                           "users_head" => "User Information",
+                                           "player" => "User",
+                                           "channel" => "Channel",
+                                           "channel_head" => "Channel Information",
+                                           "max" => $max,
+                                           "channels" => ts3_get_data('virtualserver_channelsonline'),
+                                           "logintime" => "Login time",
+                                           "idletime" => "Idle time",
+                                           "channelstats" => $channelstats,
+                                           "userstats" => $tsstatus->userstats() ));
+         $tsstatus->disconn();
+		}			   
     echo $outp_str;				   
 					   
     }
