@@ -1,14 +1,14 @@
 HLstatsX:CE Web Content
 =========================
 
-This is a modification of the original HLstatsX:CE web content that is used for the stats web interface.
+This is a modification of the original HLstatsX:CE web content that is used for the front-end.
 
-It is a directly clone of the web folder from the original source code of HLstatsX:CE
+It is a direct clone of the web folder from the original source code of HLstatsX:CE
 
 ## Changes/Additions
 
 * All template pages using the HTML5 Doctype
-* SourceBans Redux theme
+* Modified SourceBans theme
 * Mobile optimisation
 * TeamSpeak 3 Support (See Credits)
 
