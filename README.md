@@ -15,6 +15,7 @@ This version of the HLstatsX:CE front end aims to be a modernised version with w
 * Redesign SourceBans theme
 * Mobile Optimisation
 * Touch Device Optimisation
+* Image asset optimisation for high resolution screens
 * General code cleanup
 * Performance improvements
 * ~~TeamSpeak 3 Support~~ (Done, see [this commit](https://github.com/jamesmacwhite/hlstatsx-web/commit/e2901145195622c2264f9f83c2498708b25e99bb))
