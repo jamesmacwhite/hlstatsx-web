@@ -127,9 +127,6 @@ For support and installation notes visit http://www.hlxcommunity.com
 							</td> 
 						</tr>
 					</table>
-				</td>
-			</tr>
-		</table>
 		</form>
 	</div>
 </div><br /><br />
