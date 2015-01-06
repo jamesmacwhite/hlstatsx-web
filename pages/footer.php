@@ -49,34 +49,33 @@ For support and installation notes visit http://www.hlxcommunity.com
 <br />
 <br />
 	<div id="footer">
-			<a href="http://www.hlxce.com" target="_blank"><img src="<?php echo IMAGE_PATH; ?>/footer-small.png" alt="HLstatsX Community Edition" border="0" /></a>
+			<a href="http://www.hlxce.com" target="_blank">
+            	<img src="<?php echo IMAGE_PATH; ?>/footer-small.png" alt="HLstatsX Community Edition" border="0" />
+           	</a>
 	</div>
 <br />
 <div class="fSmall" style="text-align:center;">
-<?php
+<?php if($_SESSION['nojs'] == 1): ?>
+	<p>You are currently viewing the basic version of this page, please enable JavaScript and reload the page to access full functionality.</p>
+<?php endif; ?>
 
-	if($_SESSION['nojs'] == 1) {
-		echo 'You are currently viewing the basic version of this page, please enable JavaScript and reload the page to access full functionality.<br />';
-	}
-	echo 'Generated in real-time by <a href="http://www.hlxce.com" target="_blank">HLstatsX Community Edition '.$g_options['version'].'</a>';
-	if ($g_options['showqueries'] == 1) {
-		echo '
-			<br />
-			Executed '.$db->querycount." queries, generated this page in $scripttime Seconds\n";
-	}
-?>
-<br />
-All images are copyrighted by their respective owners.
+	<p>Generated in real-time by <a href="http://www.hlxce.com" target="_blank">HLstatsX Community Edition <?php echo  $g_options['version'] ?></a></p>
+<?php if ($g_options['showqueries'] == 1): ?>
+	<p>Executed <?php echo $db->querycount ?> queries, generated this page in $scripttime Seconds</p>
+<?php endif; ?>
 
-<?php
-	echo '<br /><br />[<a href="'.$g_options['scripturl']."?mode=admin\">Admin</a>]";
+	<p>All images are copyrighted by their respective owners.</p>
 
-	if (isset($_SESSION['loggedin'])) {
+	<p>
+    	[<a href="<?php echo $g_options['scripturl'] ?>?mode=admin">Admin</a>]
+    
+		<?php if (isset($_SESSION['loggedin'])): ?>
 
-		echo '&nbsp;[<a href="hlstats.php?logout=1">Logout</a>]';
-
-	}
-?>
+		&nbsp;[<a href="hlstats.php?logout=1">Logout</a>]
+        
+        <?php endif; ?>
+    </p>
+    
 </div>
 </div>
 <?php
