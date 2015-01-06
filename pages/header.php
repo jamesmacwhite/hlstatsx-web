@@ -108,24 +108,17 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<link rel="stylesheet" type="text/css" href="hlstats.css" />
 	<link rel="stylesheet" type="text/css" href="styles/<?php echo $selectedStyle; ?>" />
 	<link rel="stylesheet" type="text/css" href="css/SqueezeBox.css" />
-	<!-- U R A SMACKHEAD -->
-<?php
-	if ($mode == 'players')
-	{
-		echo "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Autocompleter.css\" />\n";
-	}
-?>
+<?php if ($mode == 'players'): ?>
+	<link rel="stylesheet" type="text/css" href="css/Autocompleter.css" />
+<?php endif; ?>
 	<link rel="SHORTCUT ICON" href="favicon.ico" />
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/mootools.js"></script>
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/SqueezeBox.js"></script>
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/heatmap.js"></script>
-<?php
-	if ($g_options['playerinfo_tabs'] == '1') {
-?>
+<?php if ($g_options['playerinfo_tabs'] == '1'): ?>
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/tabs.js"></script>
-<?php
-	}
-?>
+<?php endif; ?>
+
 	<title>
 <?php
 	echo $g_options['sitename']; 
