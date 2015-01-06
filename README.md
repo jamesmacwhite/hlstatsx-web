@@ -5,19 +5,25 @@ This is a modification of the original HLstatsX:CE web content that is used for 
 
 It is a direct clone of the web folder from the original source code of HLstatsX:CE
 
-## Changes/Additions
+## About this version
 
-* HTML5 (Work in Progress)
-* Modified SourceBans theme (Work in Progress)
-* Themes/User selectable styles removed (Done) 
-* Mobile optimised layout (Work in Progress)
-* TeamSpeak 3 Support (Done, see Credits)
+This version of the HLstatsX:CE front end aims to be a modernised version with web standards of today in mind.
+
+## TODO list
+
+* Convert to HTML5
+* Redesign SourceBans theme
+* Mobile Optimisation
+* Touch Device Optimisation
+* General code cleanup
+* Performance improvements
+* ~~TeamSpeak 3 Support~~ (See [this commit](https://github.com/jamesmacwhite/hlstatsx-web/commit/e2901145195622c2264f9f83c2498708b25e99bb))
 
 ## Installing
 
-Simply copy the entire contents to the location of where you want to host HLstatsX:CE, in replacement of the original web folder provided by the main version.
+**Warning:** Do not install on a live web server that is providing statistics for live game servers. The web interface code here is in development and experimental. Eventually releases will be made available, but for now the master branch is where development will be done.
 
-**Warning:** Do not install on a live web server that is providing statistics for live game servers. As the web interface code here is in development and may not be complete. 
+Simply copy the entire contents of this repo to the location of where you want to host HLstatsX:CE, in replacement of the original web folder provided by the main version.
 
 ## Credits
 
@@ -26,5 +32,3 @@ TeamSpeak 3 Support: https://forums.alliedmods.net/showpost.php?p=1854304&postco
 Original source code for HLstatsX:CE can be found here:
 
 https://bitbucket.org/Maverick_of_UC/hlstatsx-community-edition/src
-
-
