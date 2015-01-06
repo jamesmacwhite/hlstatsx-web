@@ -105,7 +105,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 	<link rel="stylesheet" type="text/css" href="hlstats.css" />
-	<link rel="stylesheet" type="text/css" href="styles/<?php echo $selectedStyle; ?>" />
+	<link rel="stylesheet" type="text/css" href="styles/sourcebans.css" />
 	<link rel="stylesheet" type="text/css" href="css/SqueezeBox.css" />
 <?php if ($mode == 'players'): ?>
 	<link rel="stylesheet" type="text/css" href="css/Autocompleter.css" />
@@ -158,7 +158,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<?php // Determine if we should show SourceBans links/Forum links ?>
     
 	<?php if ($g_options['sourcebans_address'] && file_exists($iconpath . "/title-sourcebans.png")): ?>
-		<li>
+		<li class="sourcebans">
         	<a href="<?php echo $g_options['sourcebans_address'] ?>" target="_blank">
             	<img src="<?php echo $iconpath ?>/title-sourcebans.png" alt="SourceBans" />
             </a>
@@ -166,7 +166,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<?php endif; ?>
     
 	<?php if ($g_options['forum_address'] && file_exists($iconpath . "/title-forum.png")): ?>
-		<li>
+		<li class="forum">
         	<a href="<?php echo $g_options['forum_address'] ?>" target="_blank">
             	<img src="<?php echo $iconpath ?>/title-forum.png" alt="Forum" />
             </a>
@@ -261,14 +261,14 @@ For support and installation notes visit http://www.hlxcommunity.com
 <?php if ($game != ''): ?>    
     <span class="fHeading">&nbsp;<img src="<?php echo IMAGE_PATH; ?>/downarrow.gif" alt="" />&nbsp;Sections</span><p />
 		<ul class="navbar">
-			<li>
+			<li class="servers">
             	<a href="<?php echo $g_options['scripturl']  . "?game=$game";  ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-servers.png" alt="Servers" /></a> <a href="<?php echo $g_options['scripturl']  . "?game=$game";  ?>" class="fHeading">Servers
                 </a>
             </li>
 
 <?php if ($g_options['nav_globalchat']==1): ?>
-			<li>
+			<li class="gamechat">
             	<a href="<?php echo $g_options['scripturl']  . "?mode=chat&amp;game=$game";  ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-chat.png" alt="Chat" />
                 </a> 
@@ -276,14 +276,14 @@ For support and installation notes visit http://www.hlxcommunity.com
             </li>
 <?php endif; ?>
 
-			<li>
+			<li class="players">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=players&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-players.png" alt="Players" /></a> 
                     
             	<a href="<?php echo $g_options['scripturl'] . "?mode=players&amp;game=$game"; ?>" class="fHeading">Players</a>
             </li>
             
-			<li>
+			<li class="clans">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=clans&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-clans.png" alt="Clans" />
                 </a> 
@@ -291,7 +291,7 @@ For support and installation notes visit http://www.hlxcommunity.com
            </li>
 
 <?php if ($g_options["countrydata"]==1): ?>
-			<li>
+			<li class="countries">
             	<a href="<?php echo $g_options['scripturl']  . "?mode=countryclans&amp;game=$game";  ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-countryclans.png" alt="CountryClans" />
                	</a> 
@@ -300,7 +300,7 @@ For support and installation notes visit http://www.hlxcommunity.com
             </li>
 <?php endif; ?>
 
-			<li>
+			<li class="awards">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=awards&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-awards.png" alt="Awards" />
                 </a> 
@@ -311,7 +311,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	$db->query("SELECT game FROM hlstats_Actions WHERE game='".$game."' LIMIT 1");
 	if ($db->num_rows()>0):
 ?> 
-			<li>
+			<li class="actions">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=actions&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-actions.png" alt="Actions" />
                	</a> 
@@ -319,14 +319,14 @@ For support and installation notes visit http://www.hlxcommunity.com
             </li>
 <?php endif; ?>
 
-			<li>
+			<li class="weapons">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=weapons&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-weapons.png" alt="Weapons" />
                 </a> 
                 <a href="<?php echo $g_options['scripturl'] . "?mode=weapons&amp;game=$game"; ?>" class="fHeading">Weapons</a>
             </li>
             
-			<li>
+			<li class="maps">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=maps&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-maps.png" alt="Maps" />
                 </a> 
@@ -337,7 +337,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	$numitems = $db->num_rows($result);
 	if ($numitems > 0):
 ?>
-			<li>
+			<li class="roles">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=roles&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-roles.png" alt="Roles" />
                 </a> 
@@ -346,11 +346,11 @@ For support and installation notes visit http://www.hlxcommunity.com
 <?php endif; ?>
 
 <?php if ($g_options['nav_cheaters'] == 1): ?>
-			<li>
+			<li class="bans">
             	<a href="<?php echo $g_options['scripturl'] . "?mode=bans&amp;game=$game"; ?>" class="fHeading">
                 	<img src="<?php echo $iconpath; ?>/nav-bans.png" alt="Banned" />
                 </a> 
                 <a href="<?php echo $g_options['scripturl'] . "?mode=bans&amp;game=$game"; ?>" class="fHeading">Bans</a></li>
 <?php endif; ?>
 	</ul>
-<?php endif; ?> 
+<?php endif; ?>
