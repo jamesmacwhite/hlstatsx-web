@@ -216,23 +216,30 @@ For support and installation notes visit http://www.hlxcommunity.com
 			<li><a href="<?php echo preg_replace('/http:\/\//', '', $g_options['siteurl']) ?>"><?php echo $g_options['sitename'] ?></a>
 		<?php endif; ?>
 			<span class="arrow">&raquo;</span></li>
-			<li><a href="http://<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ?>">HLstatsX</a>
+			<li><a href="http://<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ?>">HLstatsX</a></li>
 
 		<?php
 			$i=0;
-			foreach ($location as $l=>$url)
+			foreach ($location as $l=>$url) 
 			{
+			
 				$url = preg_replace('/%s/', $g_options['scripturl'], $url);
 				$url = preg_replace('/&/', '&amp;', $url);
-				echo ' <span class="arrow">&raquo;</span></li><li>';
-				if ($url) {
-					echo "<a href=\"$url\">$l</a>";
-				} else {
-					echo "<strong>$l</strong>";
-				}
-				$i++;
-		}
-?>			</li>
+		?>
+				<span class="arrow">&raquo;</span></li>
+                <li>
+				<?php if ($url): ?>
+					<a href="<?php echo $url ?>"><?php echo $l ?></a>
+				<?php else: ?>
+					<strong><?php echo $l ?></strong>
+				<?php 
+					endif;
+					$i++; 
+				?>
+				</li>
+            <?php
+			}
+		?>
 		</ul>
 
 	</div>
