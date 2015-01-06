@@ -99,7 +99,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -135,26 +135,29 @@ For support and installation notes visit http://www.hlxcommunity.com
 	if ( $_POST['js'] )
 	{
 		$_SESSION['nojs'] = 0;
-	} else {
-		if ((!isset($_SESSION['nojs'])) or ($_SESSION['nojs'] == 1)) {
-			// Send javascript form - if they have javascript enabled it will POST the JS variable, and the code above will update their session variable
-			echo '
+	} else { 
+	?>
+		<?php if ((!isset($_SESSION['nojs'])) or ($_SESSION['nojs'] == 1)):
+		// Send javascript form - if they have javascript enabled it will POST the JS variable, and the code above will update their session variable
+		?>
 			<!-- Either this is your first visit in a while, or you don\'t have javascript enabled -->
 			<form name="jsform" id="jsform" action="" method="post" style="display:none">
-			<div>
-			<input name="js" type="text" value="true" />
-			<script type="text/javascript">
-			document.jsform.submit();
-			</script>
-			</div>
-			</form>'
-			;
+				<div>
+					<input name="js" type="text" value="true" />
+					<script type="text/javascript">
+						document.jsform.submit();
+					</script>
+				</div>
+			</form>
+			
+		<?php
 			$_SESSION['nojs'] = 1;
 			$g_options['playerinfo_tabs'] = 0;
 			$g_options['show_google_map'] = 0;
-		}
+		?>
+		<?php endif; 
 	}
-?>
+		?>
 	<?php // Determine if we should show SourceBans links/Forum links ?>
     
 	<?php if ($g_options['sourcebans_address'] && file_exists($iconpath . "/title-sourcebans.png")): ?>
