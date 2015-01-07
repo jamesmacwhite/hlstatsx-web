@@ -77,6 +77,9 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<link rel="stylesheet" type="text/css" href="css/Autocompleter.css" />
 <?php endif; ?>
 	<link rel="shortcut icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/html5shiv.js"></script>
+    <![endif]-->
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/mootools.js"></script>
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/SqueezeBox.js"></script>
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/heatmap.js"></script>
