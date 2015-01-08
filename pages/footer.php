@@ -46,8 +46,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	$scripttime = round(microtime(true) - $scripttime, 4);
 ?>
 <div style="clear:both;"></div>
-<br />
-<br />
+
 	<div id="footer">
 			<a href="http://www.hlxce.com" target="_blank">
             	<img src="<?php echo IMAGE_PATH; ?>/footer-small.png" alt="HLstatsX Community Edition" border="0" />
