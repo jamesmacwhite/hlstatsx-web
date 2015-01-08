@@ -216,10 +216,15 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<div class="location" style="clear:both;width:100%;">
 		<ul class="fNormal" style="float:left">
 		<?php if ($g_options['sitename'] && $g_options['siteurl']): ?>
-			<li><a href="<?php echo preg_replace('/http:\/\//', '', $g_options['siteurl']) ?>"><?php echo $g_options['sitename'] ?></a>
+			<li>
+            	<a href="<?php echo preg_replace('/http:\/\//', '', $g_options['siteurl']) ?>"><?php echo $g_options['sitename'] ?></a>
 		<?php endif; ?>
-			<span class="arrow">&raquo;</span></li>
-			<li><a href="http://<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ?>">HLstatsX</a></li>
+				<span class="arrow">&raquo;</span>
+            </li>
+            
+			<li>
+            	<a href="http://<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] ?>">HLstatsX</a>
+            </li>
 
 		<?php
 			$i=0;
@@ -229,7 +234,10 @@ For support and installation notes visit http://www.hlxcommunity.com
 				$url = preg_replace('/%s/', $g_options['scripturl'], $url);
 				$url = preg_replace('/&/', '&amp;', $url);
 		?>
-				<span class="arrow">&raquo;</span></li>
+				<li>
+                	<span class="arrow">&raquo;</span>
+                </li>
+                
                 <li>
 				<?php if ($url): ?>
 					<a href="<?php echo $url ?>"><?php echo $l ?></a>
