@@ -258,7 +258,7 @@ function show($tpl, $array)
        $data = $tsstatus->serverdata();
        return $data[$was];
        } 
-			 $channels = '<link rel="stylesheet" type="text/css" href="'.IMAGE_PATH.'/teamspeak3/ts3.css" />'.$tsstatus->render();
+		$tsstatus->render();
        $outp_str = show("teamspeak3", array("name" => ts3_get_data('virtualserver_name'),
                                            "os" => ts3_get_data('virtualserver_platform'),
                                            "uptime" => time_convert(ts3_get_data('virtualserver_uptime')),

@@ -105,6 +105,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 	<link rel="stylesheet" type="text/css" href="css/hlstats.css" />
+    <link rel="stylesheet" type="text/css" href="css/ts3.css" />
 	<link rel="stylesheet" type="text/css" href="styles/sourcebans.css" />
 	<link rel="stylesheet" type="text/css" href="css/SqueezeBox.css" />
 <?php if ($mode == 'players'): ?>
