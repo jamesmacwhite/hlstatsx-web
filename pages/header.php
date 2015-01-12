@@ -58,40 +58,6 @@ For support and installation notes visit http://www.hlxcommunity.com
      
 	global $game, $mode;
 
-	// see if they have a defined style or a new style they'd like
-	$selectedStyle = (isset($_COOKIE['style']) && $_COOKIE['style']) ? $_COOKIE['style'] : "";
-	$selectedStyle = isset($_POST['stylesheet']) ? $_POST['stylesheet'] : $selectedStyle; 
-
-	// if they do make sure it exists
-	if(!empty($selectedStyle))
-	{
-		// this assumes that styles is up a directory from page_path, this might be a bad assumption
-		$testfile=sprintf("%s/%s/%s", PAGE_PATH, '../styles', $selectedStyle);
-		if(!file_exists($testfile))
-		{
-			$selectedStyle = "";
-		}
-	}
-	
-	// if they don't have one defined or the defined was is invalid use the default	
-	if(empty($selectedStyle))
-	{
-		$selectedStyle=$g_options['style'];
-	}	
-
-	// if they had one, or tried to have one, set it to whatever we resolved it to
-	if (isset($_POST['stylesheet']) || isset($_COOKIE['style']))
-	{
-		setcookie('style', $selectedStyle, time()+60*60*24*30);
-	}
-
-// this code here assumes that styles end with .css (the selector box for users and for admin does NOT check), someone may want to change this -octo
-	// Determine if we have custom nav images available
-    if ($selectedStyle) {
-        $style = preg_replace('/\.css$/','',$selectedStyle);
-    } else {
-        $style = preg_replace('/\.css$/','',$g_options['style']);
-    }
 	$iconpath = IMAGE_PATH . "/icons";
 	if (file_exists($iconpath . "/" . $style)) {
 			$iconpath = $iconpath . "/" . $style;
@@ -112,6 +78,9 @@ For support and installation notes visit http://www.hlxcommunity.com
 	<link rel="stylesheet" type="text/css" href="css/Autocompleter.css" />
 <?php endif; ?>
 	<link rel="shortcut icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/html5shiv.js"></script>
+    <![endif]-->
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/mootools.js"></script>
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/SqueezeBox.js"></script>
 	<script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>/js/heatmap.js"></script>
