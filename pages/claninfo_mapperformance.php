@@ -111,7 +111,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 	);
 	
 	$db->query("
-		CREATE TEMPORARY TABLE tmp_clan_kills
+		CREATE TEMPORARY TABLE IF NOT EXISTS tmp_clan_kills
 			SELECT
 				IF(map='', '(Unaccounted)', map) AS map,
 				COUNT(*) AS kills,
@@ -122,11 +122,11 @@ For support and installation notes visit http://www.hlxcommunity.com
 				hlstats_Players.playerId = hlstats_Events_Frags.killerId
 				AND hlstats_Players.clan = $clan
 			GROUP BY
-				map;
+				hlstats_Events_Frags.map;
 	");
 	
 	$db->query("
-		CREATE TEMPORARY TABLE tmp_clan_deaths
+		CREATE TEMPORARY TABLE IF NOT EXISTS tmp_clan_deaths
 			SELECT
 				IF(map='', '(Unaccounted)', map) AS map,
 				COUNT(*) AS deaths
@@ -136,7 +136,7 @@ For support and installation notes visit http://www.hlxcommunity.com
 				hlstats_Players.playerId = hlstats_Events_Frags.victimId
 				AND hlstats_Players.clan = $clan
 			GROUP BY
-				map;
+				hlstats_Events_Frags.map;
 	");
 
 	$result = $db->query("
